@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GHS375JB</title>
+    
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+            background-color: #333; /* Light black (dark gray) background */
+            display: flex;
+            flex-direction: column; /* Allow for vertical stacking */
+            justify-content: center; /* Centers the content horizontally */
+            align-items: center; /* Centers the content vertically */
+            height: 100vh; /* Full viewport height */
+        }
+
+        h1 {
+            color: #f4f4f4; /* Color for the heading */
+            font-size: 2.5rem; /* Adjust size of the heading */
+            margin-bottom: 30px; /* Adds space between the heading and buttons */
+        }
+
+        /* Flex container for buttons */
+        .button-container {
+            display: flex;
+            justify-content: center; /* Aligns buttons in a row */
+            gap: 20px; /* Adds space between the buttons */
+        }
+
+        /* Basic styling for buttons */
+        .btn {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+        }
+
+        .staff-statement {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        .none-teaching {
+            background-color: #2196F3;
+            color: white;
+        }
+
+        .vacancy-6277 {
+            background-color: #f44336;
+            color: white;
+        }
+
+        .vacancy-6073 {
+            background-color: #ff9800;
+            color: white;
+        }
+
+        .btn:hover {
+            opacity: 0.8;
+        }
+
+        .star {
+            position: absolute;
+            background-color: white;
+            border-radius: 50%;
+            opacity: 0.8;
+            animation: twinkle 1s infinite alternate;
+        }
+        .moon {
+            position: absolute;
+            background-color: #f0e68c;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            top: 20px;
+            left: -60px; /* Start off-screen */
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+            animation: moveMoon 10s linear infinite; /* Animation for moon movement */
+        }
+
+        @keyframes twinkle {
+            0% {
+                transform: scale(1);
+            }
+            100% {
+                transform: scale(1.5);
+            }
+        }
+
+        @keyframes moveMoon {
+            0% {
+                left: -60px; /* Start off-screen */
+            }
+            100% {
+                left: 100vw; /* Move to the right end of the screen */
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="moon"></div>
+
+    <h1><marquee>Welcome to GHS 375 JB</marquee></h1>
+
+    <!-- Container for buttons -->
+    <div class="button-container">
+        <button class="btn staff-statement" onclick="location.href='newstaff.html'">Staff Statement</button>
+        <button class="btn none-teaching" onclick="location.href='nonteaching staff.html'">None Teaching Staff</button>
+        <button class="btn vacancy-6277" onclick="location.href='vacancy6277.html'">Vacancy Position 6277</button>
+        <button class="btn vacancy-6073" onclick="location.href='vacancy6073.html'">Vacancy Position 6073</button>
+    </div>
+
+    <script>
+        const numStars = 100;
+        const body = document.body;
+
+        for (let i = 0; i < numStars; i++) {
+            const star = document.createElement('div');
+            star.className = 'star';
+            const size = Math.random() * 5 + 2; // Size between 2px and 7px
+            star.style.width = `${size}px`;
+            star.style.height = `${size}px`;
+            star.style.top = `${Math.random() * window.innerHeight}px`;
+            star.style.left = `${Math.random() * window.innerWidth}px`;
+            star.style.animationDuration = `${Math.random() * 1 + 0.5}s`; // Random duration
+            body.appendChild(star);
+        }
+    </script>
+</body>
+</html>
